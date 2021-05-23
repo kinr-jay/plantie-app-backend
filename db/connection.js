@@ -1,6 +1,6 @@
 // ENV variables
 require("dotenv").config()
-const { MONGODBURI } = process.env
+const { MONGODB_URI } = process.env
 
 // Import and Connect Mongoose
 const mongoose = require("mongoose")
@@ -12,7 +12,7 @@ config = {
   useFindAndModify: false,
 }
 
-mongoose.connect(MONGODBURI, config)
+mongoose.connect(MONGODB_URI, config)
 
 db.on("open", () => console.log("Connected to Mongo"))
   .on("close", () => console.log("Disconnected from Mongo"))

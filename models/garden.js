@@ -13,6 +13,6 @@ const gardenSchema = new Schema(
   { timestamps: true }
 )
 
-const Garden = mondel("Garden", gardenSchema)
+const Garden = model("Garden", gardenSchema)
 
 module.exports = Garden

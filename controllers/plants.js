@@ -40,7 +40,7 @@ router.put("/:id", async (req, res) => {
 })
 
 // Delete a single Plant by ObjectId
-router.delete("//:id", async (req, res) => {
+router.delete("/:id", async (req, res) => {
   try {
     res.send("/plants/:id route hit with DELETE request")
   } catch (error) {

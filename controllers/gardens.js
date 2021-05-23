@@ -52,7 +52,7 @@ router.post("/:id/plants", async (req, res) => {
 // Update a single Plant by ObjectId in a Garden by ObjectId
 router.put("/:id/plants/:id", async (req, res) => {
   try {
-    res.send("/gardens/plants/:id route hit with GET request")
+    res.send("/gardens/plants/:id route hit with PUT request")
   } catch (error) {
     res.status(400).json(error)
   }
@@ -61,7 +61,7 @@ router.put("/:id/plants/:id", async (req, res) => {
 // Delete a single Plant by ObjectId in a Garden by ObjectId
 router.delete("/:id/plants/:id", async (req, res) => {
   try {
-    res.send("/gardens/plants/:id route hit with POST request")
+    res.send("/gardens/plants/:id route hit with DELETE request")
   } catch (error) {
     res.status(400).json(error)
   }

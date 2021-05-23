@@ -25,4 +25,9 @@ app.get("/", (req, res) => {
   res.send("<h1>Heeeyy everybody, it's Alex Merced.</h1>")
 })
 
+const plantController = require("./controllers/plants.js")
+const gardenController = require("./controllers/gardens.js")
+app.use("/plants", plantController)
+app.use("/garden", gardenController)
+
 app.listen(PORT, () => console.log(`Server listening on port ${PORT}`))
