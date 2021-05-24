@@ -6,7 +6,8 @@ const Plant = require("../models/plant.js")
 // Find all Plants
 router.get("/", async (req, res) => {
   try {
-    res.send("/plants route hit with GET request")
+    res.json(await Plant.find({}))
+    // res.send("testing")
   } catch (error) {
     res.status(400).json(error)
   }
@@ -15,7 +16,7 @@ router.get("/", async (req, res) => {
 // Create a new Plant
 router.post("/", async (req, res) => {
   try {
-    res.send("/plants route hit with POST request")
+    res.json(await Plant.create(req.body))
   } catch (error) {
     res.status(400).json(error)
   }
@@ -24,7 +25,7 @@ router.post("/", async (req, res) => {
 // Find a single Plant by ObjectId
 router.get("/:id", async (req, res) => {
   try {
-    res.send("/plants/:id route hit with GET request")
+    res.json(await Plant.findById(req.params.id))
   } catch (error) {
     res.status(400).json(error)
   }
@@ -33,7 +34,9 @@ router.get("/:id", async (req, res) => {
 // Update a single Plant by ObjectId
 router.put("/:id", async (req, res) => {
   try {
-    res.send("/plants/:id route hit with PUT request")
+    res.json(
+      await Plant.findByIdAndUpdate(req.params.id, req.body, { new: true })
+    )
   } catch (error) {
     res.status(400).json(error)
   }
@@ -42,7 +45,17 @@ router.put("/:id", async (req, res) => {
 // Delete a single Plant by ObjectId
 router.delete("/:id", async (req, res) => {
   try {
-    res.send("/plants/:id route hit with DELETE request")
+    res.json(await Plant.findByIdAndDelete(req.params.id))
+  } catch (error) {
+    res.status(400).json(error)
+  }
+})
+
+// Seed route - for Development purposes.
+router.post("/seed", async (req, res) => {
+  try {
+    await Plant.deleteMany({})
+    res.json(await Plant.create(req.body))
   } catch (error) {
     res.status(400).json(error)
   }
