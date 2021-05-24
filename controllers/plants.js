@@ -1,7 +1,7 @@
 const mongoose = require("../db/connection.js")
 const db = mongoose.connection
 const router = require("express").Router()
-const Plant = require("../models/Plant.js")
+const Plant = require("../models/plant.js")
 
 // Find all Plants
 router.get("/", async (req, res) => {
