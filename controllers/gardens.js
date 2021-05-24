@@ -2,7 +2,7 @@ const mongoose = require("../db/connection.js")
 const db = mongoose.connection
 const router = require("express").Router()
 const Garden = require("../models/garden.js")
-const Plant = require("../models/Plant.js")
+const Plant = require("../models/plant.js")
 
 // Create a new Garden
 router.post("/", async (req, res) => {
