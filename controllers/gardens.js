@@ -45,11 +45,13 @@ router.get("/:id", async (req, res) => {
 router.post("/:gardenId/plants/:plantId", async (req, res) => {
   try {
     // console.log(req.body)
+    const split = req.body.img.split(",")
+    const data = Buffer.from(split[1], "base64")
     const plantObj = await Plant.findById(req.params.plantId)
     const housePlant = {
       name: req.body.name,
       birthday: req.body.birthday,
-      img: req.body.img,
+      img: data,
       species: plantObj._id,
     }
     res.json(

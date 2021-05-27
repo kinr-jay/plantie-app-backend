@@ -6,7 +6,7 @@ const gardenSchema = new Schema(
     password: { type: String, required: true },
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
-    img: { type: String, required: true },
+    img: { type: Buffer, required: true },
     plants: [
       {
         name: { type: String, required: true },
