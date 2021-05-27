@@ -44,10 +44,12 @@ router.get("/:id", async (req, res) => {
 // Add a single Plant by ObjectId to a Garden by ObjectId
 router.post("/:gardenId/plants/:plantId", async (req, res) => {
   try {
+    // console.log(req.body)
     const plantObj = await Plant.findById(req.params.plantId)
     const housePlant = {
       name: req.body.name,
       birthday: req.body.birthday,
+      img: req.body.img,
       species: plantObj._id,
     }
     res.json(
