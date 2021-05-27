@@ -48,6 +48,7 @@ router.post("/:gardenId/plants/:plantId", async (req, res) => {
     const housePlant = {
       name: req.body.name,
       birthday: req.body.birthday,
+      img: req.body.img,
       species: plantObj._id,
     }
     res.json(
